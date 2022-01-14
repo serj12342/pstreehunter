@@ -4,7 +4,7 @@ import re
 pattern_hashes = "^[a-f0-9]{64}$"
 pattern_url = "https?:\/\/.*"
 pattern_ip = "(?:(?:\d|[01]?\d\d|2[0-4]\d|25[0-5])\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d|\d)(?:\/\d{1,2})?"
-patter_domain = "^[a-zA-Z0-9][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9]{0,1}\.([a-zA-Z]{1,6}|[a-zA-Z0-9-]{1,30}\.[a-zA-Z]{2,3})$"
+pattern_domain = "^[a-zA-Z0-9][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9]{0,1}\.([a-zA-Z]{1,6}|[a-zA-Z0-9-]{1,30}\.[a-zA-Z]{2,3})$"
 
 headers = {
   'Accept': 'application/json'
@@ -38,7 +38,7 @@ with open("links.txt", "a") as links:
             ioc_grabber(ioc_hash, pattern_hashes, each['artifact'])
             ioc_grabber(ioc_url, pattern_url, each['artifact'])
             ioc_grabber(ioc_ip, pattern_ip, each['artifact'])
-            ioc_grabber(ioc_domain, patter_domain, each['artifact'])
+            ioc_grabber(ioc_domain, pattern_domain, each['artifact'])
           
           ioc_domain.close()
         ioc_ip.close()
